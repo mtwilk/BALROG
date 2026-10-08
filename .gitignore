@@ -167,3 +167,9 @@ cython_debug/
 tw-games.zip
 /records
 /records.zip
+
+# Contingency experiment outputs (balrog-ai/BALROG#experiments)
+/experiments/results/
+
+# API keys (keep this file local only)
+/SECRETS

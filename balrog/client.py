@@ -169,6 +169,12 @@ class OpenAIWrapper(LLMClientWrapper):
                 if not self.base_url or not self.base_url.strip():
                     raise ValueError("base_url must be provided when using NVIDIA or XAI client")
                 self.client = OpenAI(base_url=self.base_url)
+            elif self.client_name.lower() == "openrouter":
+                api_key = os.environ.get("OPENROUTER_API_KEY")
+                if not api_key:
+                    raise ValueError("OPENROUTER_API_KEY is not set; add it to SECRETS")
+                # Always use OpenRouter: config.yaml's default base_url points at a local server.
+                self.client = OpenAI(api_key=api_key, base_url="https://openrouter.ai/api/v1")
             elif self.client_name.lower() == "openai":
                 # For OpenAI, always use the standard API regardless of base_url
                 self.client = OpenAI()
@@ -796,7 +802,13 @@ def create_llm_client(client_config):
 
     def client_factory():
         client_name_lower = client_config.client_name.lower()
-        if "openai" in client_name_lower or "vllm" in client_name_lower or "nvidia" in client_name_lower or "xai" in client_name_lower:
+        if (
+            "openai" in client_name_lower
+            or "vllm" in client_name_lower
+            or "nvidia" in client_name_lower
+            or "xai" in client_name_lower
+            or "openrouter" in client_name_lower
+        ):
             # NVIDIA and XAI use OpenAI-compatible API, so we use the OpenAI wrapper
             return OpenAIWrapper(client_config)
         elif "gemini" in client_name_lower:
