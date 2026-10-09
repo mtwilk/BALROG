@@ -6,11 +6,11 @@ Models are listed in `MODELS` in `contingency_table.py`. Benchmarks are in `BENC
 
 ## Models
 
-- **API:** Nemotron 3.5 Lightning (OpenRouter, free), Gemma 4 31B (Gemini API).
+- **API:** DeepSeek V4 Flash and GPT-6 Luna (OpenRouter, paid, cheap — real per-token cost), Gemma 4 31B (Gemini API, free tier).
 - **Local** (vLLM, one at a time — `experiments/vllm_serve.sh start <repo-id>` downloads weights to the Hugging Face cache on first run):
   - [Qwen3-8B-FP8](https://huggingface.co/Qwen/Qwen3-8B-FP8) — `hf download Qwen/Qwen3-8B-FP8`
   - [Qwen3-14B-AWQ](https://huggingface.co/Qwen/Qwen3-14B-AWQ) — `hf download Qwen/Qwen3-14B-AWQ`
-  - [phi-4-AWQ](https://huggingface.co/stelterlab/phi-4-AWQ) (community quant) — `hf download stelterlab/phi-4-AWQ`
+  - [Qwen3-0.6B](https://huggingface.co/Qwen/Qwen3-0.6B) — `hf download Qwen/Qwen3-0.6B`
 
 ## Setup
 
@@ -31,7 +31,7 @@ Runs the API models directly, then serves each local model with vLLM in turn (st
 `run_contingency.sh` is the lower-level tool `run_experiment.sh` is built on. It starts WSL if needed and runs `contingency_table.py` there.
 
 ```
-bash experiments/run_contingency.sh --models nemotron-3.5-lightning --benchmarks babyai
+bash experiments/run_contingency.sh --models deepseek-v4-flash --benchmarks babyai
 ```
 
 Useful options:
@@ -55,12 +55,10 @@ Each runs one babyai episode of five steps per model, to check that the models r
 ## Notes
 
 - **Free API quotas** (set in each model's `extra_overrides` in `MODELS`, as a lower `eval.num_workers` to stay under the per-minute limit):
-  - OpenRouter (Nemotron 3.5 Lightning): 20 requests/min, 1000/day → `num_workers=5`.
   - Gemini (Gemma 4 31B): 30 requests/min, 14400/day → `num_workers=10`.
   - The per-day limits aren't enforced by the script. If a cell errors out from quota, rerun it later with `--models` and `--force`.
-- **Babyai's harder tasks are expensive at these rate limits, not just the free daily cap.** Each step is one more API call, and MiniGrid's step budgets vary a lot by task: `goto` finishes in a handful of steps, but `open` allows up to 128 and `pickup` up to 64. At 20 rpm, one `open` episode alone can take over an hour. Textworld's cap is a flat 80 steps for every game. That's why the default config above uses one task and one episode per benchmark; widen it carefully, and expect run time to scale with the step budgets, not just the episode count.
-- The handful of "Missing choices" / "Empty content" errors seen from OpenRouter's free Nemotron endpoint are a small fraction of calls (under 2% in one run) and are not the main cause of slow runs — the rate limit and step budgets are.
+- **Babyai's harder tasks are expensive at these rate limits, not just the free daily cap.** Each step is one more API call, and MiniGrid's step budgets vary a lot by task: `goto` finishes in a handful of steps, but `open` allows up to 128 and `pickup` up to 64. At 20 rpm, one `open` episode alone can take over an hour. Textworld's cap is a flat 80 steps for every game. Run time scales with the step budgets (capped by `MAX_STEPS_PER_BENCHMARK`), not just the episode count, so widen the task list carefully.
+- OpenRouter's free-tier Nemotron endpoint (no longer used) was slow and variable (up to 90+ s per call with zero errors) and returned occasional "Missing choices" errors; the current OpenRouter models are paid, so the free-tier limits do not apply.
 - Only one local model fits in VRAM at a time, so run the local models sequentially.
-- Qwen3 reasons before answering, so the local output budget is 6144 tokens and the server context is 12288. The Qwen3-14B and phi-4 smoke results were run with older settings (2048 tokens, 8192 context).
-- phi-4 (`phi-4-awq`) answers in prose instead of one action per step, so it fails the smoke test.
+- Qwen3 reasons before answering, so the local output budget is 6144 tokens and the server context is 12288 (`LOCAL_OVERRIDES` / `vllm_serve.sh`). A model that doesn't reason, or whose prompt grows large from verbose history, may need its own smaller `client.generate_kwargs.max_tokens` via `extra_overrides` on that model's `MODELS` entry — otherwise prompt + budget can exceed the server's context (this is what broke phi-4, removed from the model list; see git history if resurrecting it).
 - `pkill -f eval.py` stops whichever cell is currently running, but the orchestrator just logs it as failed and moves to the next cell rather than halting. To actually stop a run, kill the parent `contingency_table.py` process (inside WSL).

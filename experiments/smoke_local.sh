@@ -15,7 +15,7 @@ SERVE_WSL="$(wsl.exe -d "$DISTRO" -e wslpath -a "$(cygpath -w "$DIR/vllm_serve.s
 LOCAL_MODELS=(
     "qwen3-8b-fp8 Qwen/Qwen3-8B-FP8"
     "qwen3-14b-awq Qwen/Qwen3-14B-AWQ"
-    "phi-4-awq stelterlab/phi-4-AWQ"
+    "qwen3-0.6b Qwen/Qwen3-0.6B"
 )
 
 for entry in "${LOCAL_MODELS[@]}"; do

@@ -5,7 +5,7 @@ set -euo pipefail
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 bash "$DIR/run_contingency.sh" \
-    --models nemotron-3.5-lightning,gemma-4-31b-it \
+    --models deepseek-v4-flash,gpt-6-luna,gemma-4-31b-it \
     --benchmarks babyai \
     --output-root experiments/results/smoke_api \
     --override eval.num_workers=1 \

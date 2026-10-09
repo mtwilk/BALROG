@@ -34,13 +34,17 @@ MODELS = [
     #     "client_name": "gemini", "model_id": 
     #     "gemini-3.5-flash-lite"
     # },
+    # Paid OpenRouter models (not the :free tier), so the free tier's 20 rpm / 1000 per day caps don't
+    # apply and the default num_workers is used. These cost real money per token.
     {
-        # OpenRouter free tier: 20 requests/min, 1000 requests/day. num_workers caps concurrent
-        # requests well under the per-minute limit; the per-day limit can still be hit mid-run.
-        "name": "nemotron-3.5-lightning",
+        "name": "deepseek-v4-flash",
         "client_name": "openrouter",
-        "model_id": "nvidia/nemotron-3.5-lightning:free",
-        "extra_overrides": ["eval.num_workers=5"],
+        "model_id": "deepseek/deepseek-v4-flash-0731",
+    },
+    {
+        "name": "gpt-6-luna",
+        "client_name": "openrouter",
+        "model_id": "openai/gpt-6-luna",
     },
     {
         # Gemini free tier (this model): 30 requests/min, 14400 requests/day.
@@ -63,14 +67,10 @@ MODELS = [
         "base_url": "http://localhost:8080/v1",
     },
     {
-        # phi-4 doesn't reason, so it needs far fewer output tokens than Qwen3's 6144 default; keeping
-        # that default caused every episode to overflow the 12288-token server context as the verbose
-        # prose history grew (prompt + 6144 > 12288), so this overrides LOCAL_OVERRIDES down to 1024.
-        "name": "phi-4-awq",
+        "name": "qwen3-0.6b",
         "client_name": "vllm",
-        "model_id": "stelterlab/phi-4-AWQ",
+        "model_id": "Qwen/Qwen3-0.6B",
         "base_url": "http://localhost:8080/v1",
-        "extra_overrides": ["client.generate_kwargs.max_tokens=1024"],
     },
 ]
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# Run the full experiment: every model on babyai and textworld (every task, 3 episodes each).
+# Run the full experiment: every model on babyai and textworld (see COMMON_OVERRIDES in contingency_table.py for tasks and episodes).
 #
-# The API models (nemotron-3.5-lightning, gemma-4-31b-it) run directly. The local models are
+# The API models (deepseek-v4-flash, gpt-6-luna, gemma-4-31b-it) run directly. The local models are
 # served one at a time with vLLM, since only one fits in 16 GB VRAM: for each, this starts the
 # server, runs its cells, then stops the server. A final --report-only pass rebuilds the combined
 # table from all the cells written along the way, without re-running anything.
@@ -14,8 +14,8 @@ DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 DISTRO="Ubuntu"
 OUT="experiments/results/main"
 
-echo "=== API models: nemotron-3.5-lightning, gemma-4-31b-it"
-bash "$DIR/run_contingency.sh" --models nemotron-3.5-lightning,gemma-4-31b-it --output-root "$OUT" || true
+echo "=== API models: deepseek-v4-flash, gpt-6-luna, gemma-4-31b-it"
+bash "$DIR/run_contingency.sh" --models deepseek-v4-flash,gpt-6-luna,gemma-4-31b-it --output-root "$OUT" || true
 
 SERVE_WSL="$(wsl.exe -d "$DISTRO" -e wslpath -a "$(cygpath -w "$DIR/vllm_serve.sh")" | tr -d '\r')"
 
@@ -23,7 +23,7 @@ SERVE_WSL="$(wsl.exe -d "$DISTRO" -e wslpath -a "$(cygpath -w "$DIR/vllm_serve.s
 LOCAL_MODELS=(
     "qwen3-8b-fp8 Qwen/Qwen3-8B-FP8"
     "qwen3-14b-awq Qwen/Qwen3-14B-AWQ"
-    "phi-4-awq stelterlab/phi-4-AWQ"
+    "qwen3-0.6b Qwen/Qwen3-0.6B"
 )
 
 for entry in "${LOCAL_MODELS[@]}"; do
