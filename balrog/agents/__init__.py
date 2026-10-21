@@ -8,6 +8,7 @@ from .few_shot import FewShotAgent
 from .naive import NaiveAgent
 from .robust_naive import RobustNaiveAgent
 from .robust_cot import RobustCoTAgent
+from .self_refine import SelfRefineAgent
 from .symbolic import SymbolicAgent
 
 
@@ -59,6 +60,8 @@ class AgentFactory:
             return RobustCoTAgent(client_factory, prompt_builder, config=self.config)
         elif self.config.agent.type == "symbolic":
             return SymbolicAgent(client_factory, prompt_builder)
+        elif self.config.agent.type == "self_refine":
+            return SelfRefineAgent(client_factory, prompt_builder)
 
         else:
             raise ValueError(f"Unknown agent type: {self.config.agent}")

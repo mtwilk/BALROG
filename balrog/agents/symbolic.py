@@ -27,6 +27,16 @@ class SymbolicAgent(BaseAgent):
         self.map = None
         self.goals = None
 
+    def reset(self):
+        """Clear the history, map and goals before a new episode."""
+        super().reset()
+        self.map = None
+        self.goals = None
+
+    def query_llm(self, messages):
+        """Call the LLM. Overridden by SelfRefineAgent to add feedback and refinement."""
+        return self.client.generate(messages)
+
     def act(self, obs, prev_action=None):
         """Generate the next action and update the map and goals based on the current observation.
 
@@ -62,7 +72,7 @@ ACTION: <a single game command, on one line, and nothing else>
         if messages and messages[-1].role == "user": 
             messages[-1].content += "\n\n" + map_memory + "\n" + goals_memory + "\n" + planning_instructions
 
-        response = self.client.generate(messages)
+        response = self.query_llm(messages)
 
         # Parse the response into the different sections (SUMMARY, MAP, REFLECTION, GOALS, ACTION)
         sections = self._extract_sections(response.completion)
