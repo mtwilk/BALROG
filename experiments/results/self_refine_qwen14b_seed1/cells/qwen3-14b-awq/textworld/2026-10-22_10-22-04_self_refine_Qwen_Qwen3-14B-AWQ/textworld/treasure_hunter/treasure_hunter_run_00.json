@@ -1,0 +1,48 @@
+{
+    "task": "treasure_hunter",
+    "action_frequency": {
+        "go north": 10,
+        "take key": 2,
+        "go east": 23,
+        "go south": 10,
+        "go west": 21,
+        "unlock south with key": 3,
+        "unlock south door with key": 2,
+        "unlock the south door with key": 1,
+        "unlock south passageway with key": 3,
+        "open south with key": 1,
+        "look": 4
+    },
+    "input_tokens": 437337,
+    "output_tokens": 128361,
+    "done": true,
+    "episode_return": 0.0,
+    "num_steps": 80,
+    "failed_candidates": [],
+    "progression": 0.0,
+    "process_num": "ForkProcess-2",
+    "seed": 1,
+    "agent": {
+        "type": "self_refine",
+        "remember_cot": true,
+        "max_text_history": 16,
+        "max_image_history": 0,
+        "max_cot_history": 1,
+        "max_icl_history": 1000,
+        "cache_icl": false
+    },
+    "client": {
+        "client_name": "vllm",
+        "model_id": "Qwen/Qwen3-14B-AWQ",
+        "base_url": "http://localhost:8080/v1",
+        "generate_kwargs": {
+            "temperature": 1.0,
+            "max_tokens": 6144,
+            "thinking_budget": null
+        },
+        "timeout": 60,
+        "max_retries": 5,
+        "delay": 2,
+        "alternate_roles": false
+    }
+}

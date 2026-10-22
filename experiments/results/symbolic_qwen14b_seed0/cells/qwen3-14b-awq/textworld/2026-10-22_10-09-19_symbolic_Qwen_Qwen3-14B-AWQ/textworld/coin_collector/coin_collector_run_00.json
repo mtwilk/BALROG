@@ -1,0 +1,42 @@
+{
+    "task": "coin_collector",
+    "action_frequency": {
+        "go north": 26,
+        "go south": 21,
+        "go east": 18,
+        "go west": 14,
+        "take coin": 1
+    },
+    "input_tokens": 160115,
+    "output_tokens": 113910,
+    "done": true,
+    "episode_return": 0.0,
+    "num_steps": 80,
+    "failed_candidates": [],
+    "progression": 0.0,
+    "process_num": "ForkProcess-1",
+    "seed": 0,
+    "agent": {
+        "type": "symbolic",
+        "remember_cot": true,
+        "max_text_history": 16,
+        "max_image_history": 0,
+        "max_cot_history": 1,
+        "max_icl_history": 1000,
+        "cache_icl": false
+    },
+    "client": {
+        "client_name": "vllm",
+        "model_id": "Qwen/Qwen3-14B-AWQ",
+        "base_url": "http://localhost:8080/v1",
+        "generate_kwargs": {
+            "temperature": 1.0,
+            "max_tokens": 6144,
+            "thinking_budget": null
+        },
+        "timeout": 60,
+        "max_retries": 5,
+        "delay": 2,
+        "alternate_roles": false
+    }
+}

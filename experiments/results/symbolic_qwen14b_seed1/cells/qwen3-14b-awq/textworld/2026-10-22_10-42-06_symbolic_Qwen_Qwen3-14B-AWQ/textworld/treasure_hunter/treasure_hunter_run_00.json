@@ -1,0 +1,49 @@
+{
+    "task": "treasure_hunter",
+    "action_frequency": {
+        "go north": 20,
+        "take key": 3,
+        "go east": 9,
+        "go west": 8,
+        "go south": 16,
+        "open south": 1,
+        "unlock south with key": 11,
+        "inventory": 2,
+        "look": 3,
+        "unlock north with key": 1,
+        "take key from Laundromat": 5,
+        "open drawer in Laundromat": 1
+    },
+    "input_tokens": 175914,
+    "output_tokens": 99998,
+    "done": true,
+    "episode_return": 0.0,
+    "num_steps": 80,
+    "failed_candidates": [],
+    "progression": 0.0,
+    "process_num": "ForkProcess-2",
+    "seed": 1,
+    "agent": {
+        "type": "symbolic",
+        "remember_cot": true,
+        "max_text_history": 16,
+        "max_image_history": 0,
+        "max_cot_history": 1,
+        "max_icl_history": 1000,
+        "cache_icl": false
+    },
+    "client": {
+        "client_name": "vllm",
+        "model_id": "Qwen/Qwen3-14B-AWQ",
+        "base_url": "http://localhost:8080/v1",
+        "generate_kwargs": {
+            "temperature": 1.0,
+            "max_tokens": 6144,
+            "thinking_budget": null
+        },
+        "timeout": 60,
+        "max_retries": 5,
+        "delay": 2,
+        "alternate_roles": false
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "progression_percentage": 50.0,
+    "standard_error": 35.35533905932737,
+    "average_steps": 51.0,
+    "episodes_played": 2,
+    "tasks": {
+        "BabyAI-MixedTrainLocal-v0/goto": {
+            "progression_percentage": 0.0,
+            "standard_error": 0.0,
+            "episodes_played": 1
+        },
+        "BabyAI-MixedTrainLocal-v0/pickup": {
+            "progression_percentage": 100.0,
+            "standard_error": 0.0,
+            "episodes_played": 1
+        }
+    },
+    "input_tokens": 74593,
+    "output_tokens": 142435
+}

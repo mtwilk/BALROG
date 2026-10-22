@@ -1,0 +1,11 @@
+model,benchmark,run1_progress_pct,run1_episodes,run2_progress_pct,run2_episodes,pooled_progress_pct,pooled_se_pct,pooled_episodes
+deepseek-v4-flash,babyai,100.0,1,100.0,1,100.0,0.0,2
+deepseek-v4-flash,textworld,0.0,1,0.0,1,0.0,0.0,2
+gpt-6-luna,babyai,100.0,2,100.0,2,100.0,0.0,4
+gpt-6-luna,textworld,0.0,1,0.0,1,0.0,0.0,2
+qwen3-0.6b,babyai,0.0,2,0.0,2,0.0,0.0,4
+qwen3-0.6b,textworld,0.0,1,0.0,1,0.0,0.0,2
+qwen3-14b-awq,babyai,100.0,2,100.0,2,100.0,0.0,4
+qwen3-14b-awq,textworld,0.0,1,0.0,1,0.0,0.0,2
+qwen3-8b-fp8,babyai,100.0,2,50.0,2,75.0,21.7,4
+qwen3-8b-fp8,textworld,0.0,1,0.0,1,0.0,0.0,2

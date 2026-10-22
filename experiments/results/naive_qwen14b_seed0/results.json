@@ -1,0 +1,11 @@
+[
+    {
+        "model": "qwen3-14b-awq",
+        "benchmark": "textworld",
+        "output_dir": "/mnt/c/Users/Mateusz/Documents/BALROG/experiments/results/naive_qwen14b_seed0/cells/qwen3-14b-awq/textworld",
+        "status": "ok",
+        "progression_percentage": 0.0,
+        "standard_error": 0.0,
+        "episodes_played": 2
+    }
+]

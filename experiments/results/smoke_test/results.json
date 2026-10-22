@@ -1,0 +1,11 @@
+[
+    {
+        "model": "nemotron-3.5-lightning",
+        "benchmark": "babyai",
+        "output_dir": "/mnt/c/Users/Mateusz/Documents/BALROG/experiments/results/smoke_test/cells/nemotron-3.5-lightning/babyai",
+        "status": "ok",
+        "progression_percentage": 100.0,
+        "standard_error": 0.0,
+        "episodes_played": 1
+    }
+]

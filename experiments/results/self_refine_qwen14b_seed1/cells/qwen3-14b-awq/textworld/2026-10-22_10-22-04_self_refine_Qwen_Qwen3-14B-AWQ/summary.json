@@ -1,0 +1,36 @@
+{
+    "average_progress": 0.0,
+    "standard_error": 0.0,
+    "environments": {
+        "textworld": {
+            "progression_percentage": 0.0,
+            "standard_error": 0.0,
+            "episodes_played": 2
+        }
+    },
+    "total_input_tokens": 909725,
+    "total_output_tokens": 295498,
+    "client": {
+        "client_name": "vllm",
+        "model_id": "Qwen/Qwen3-14B-AWQ",
+        "base_url": "http://localhost:8080/v1",
+        "generate_kwargs": {
+            "temperature": 1.0,
+            "max_tokens": 6144,
+            "thinking_budget": null
+        },
+        "timeout": 60,
+        "max_retries": 5,
+        "delay": 2,
+        "alternate_roles": false
+    },
+    "agent": {
+        "type": "self_refine",
+        "remember_cot": true,
+        "max_text_history": 16,
+        "max_image_history": 0,
+        "max_cot_history": 1,
+        "max_icl_history": 1000,
+        "cache_icl": false
+    }
+}

@@ -1,0 +1,36 @@
+{
+    "average_progress": 100.0,
+    "standard_error": 0.0,
+    "environments": {
+        "babyai": {
+            "progression_percentage": 100.0,
+            "standard_error": 0.0,
+            "episodes_played": 1
+        }
+    },
+    "total_input_tokens": 7876,
+    "total_output_tokens": 44990,
+    "client": {
+        "client_name": "openrouter",
+        "model_id": "deepseek/deepseek-v4-flash-0731",
+        "base_url": "http://localhost:8080/v1",
+        "generate_kwargs": {
+            "temperature": 1.0,
+            "max_tokens": 8192,
+            "thinking_budget": null
+        },
+        "timeout": 60,
+        "max_retries": 5,
+        "delay": 2,
+        "alternate_roles": false
+    },
+    "agent": {
+        "type": "naive",
+        "remember_cot": true,
+        "max_text_history": 16,
+        "max_image_history": 0,
+        "max_cot_history": 1,
+        "max_icl_history": 1000,
+        "cache_icl": false
+    }
+}

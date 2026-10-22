@@ -1,0 +1,63 @@
+{
+    "task": "treasure_hunter",
+    "action_frequency": {
+        "go east": 12,
+        "take keycard from table": 1,
+        "unlock east with keycard": 1,
+        "unlock hatch with keycard": 1,
+        "open hatch": 1,
+        "open box": 1,
+        "unlock hatch with latchkey": 1,
+        "unlock Hendersons limited edition hatch with latchkey": 1,
+        "take Hendersons limited edition latchkey from box": 1,
+        "unlock Hendersons limited edition hatch with Hendersons limited edition latchkey": 1,
+        "open Hendersons limited edition hatch": 1,
+        "go south": 10,
+        "look at chest": 2,
+        "open chest": 3,
+        "go north": 11,
+        "unlock chest with Hendersons limited edition latchkey": 5,
+        "go west": 10,
+        "goal": 4,
+        "open toolbox": 2,
+        "inventory": 2,
+        "unlock toolbox with keycard": 1,
+        "unlock toolbox with Hendersons limited edition latchkey": 1,
+        "look": 2,
+        "take toolbox": 3,
+        "unlock chest with keycard": 1,
+        "unlock portal with Hendersons limited edition latchkey": 1
+    },
+    "input_tokens": 97904,
+    "output_tokens": 64693,
+    "done": true,
+    "episode_return": 0.0,
+    "num_steps": 80,
+    "failed_candidates": [],
+    "progression": 0.0,
+    "process_num": "ForkProcess-2",
+    "seed": 0,
+    "agent": {
+        "type": "naive",
+        "remember_cot": true,
+        "max_text_history": 16,
+        "max_image_history": 0,
+        "max_cot_history": 1,
+        "max_icl_history": 1000,
+        "cache_icl": false
+    },
+    "client": {
+        "client_name": "vllm",
+        "model_id": "Qwen/Qwen3-14B-AWQ",
+        "base_url": "http://localhost:8080/v1",
+        "generate_kwargs": {
+            "temperature": 1.0,
+            "max_tokens": 6144,
+            "thinking_budget": null
+        },
+        "timeout": 60,
+        "max_retries": 5,
+        "delay": 2,
+        "alternate_roles": false
+    }
+}

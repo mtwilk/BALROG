@@ -1,0 +1,63 @@
+{
+    "task": "treasure_hunter",
+    "action_frequency": {
+        "go east": 11,
+        "take keycard": 1,
+        "unlock east hatch with keycard": 2,
+        "unlock east with keycard": 1,
+        "unlock hatch with keycard": 1,
+        "open east hatch": 5,
+        "open east": 2,
+        "open hatch": 1,
+        "open box": 1,
+        "take Henderson's limited edition latchkey from box": 1,
+        "unlock east hatch with Henderson's limited edition latchkey": 2,
+        "unlock hatch with Henderson's limited edition latchkey": 1,
+        "unlock east with Henderson's limited edition latchkey": 6,
+        "Open the hatch using its full name to proceed.": 1,
+        "open Henderson's limited edition hatch": 4,
+        "unlock Henderson's limited edition hatch with Henderson's limited edition latchkey": 1,
+        "go south": 12,
+        "look": 3,
+        "look at chest": 1,
+        "go north": 6,
+        "go west": 6,
+        "unlock portal with Henderson's limited edition latchkey": 3,
+        "Return to the Lounge, proceed to the Spare Room, open the chest, and take the keycard before attempting to unlock the Chamber's portal.": 1,
+        "open chest": 4,
+        "unlock chest with Henderson's limited edition latchkey": 2,
+        "go north (to Lounge, then proceed to Spare Room \u2192 Bedroom \u2192 Chamber).": 1
+    },
+    "input_tokens": 401731,
+    "output_tokens": 156028,
+    "done": true,
+    "episode_return": 0.0,
+    "num_steps": 80,
+    "failed_candidates": [],
+    "progression": 0.0,
+    "process_num": "ForkProcess-2",
+    "seed": 0,
+    "agent": {
+        "type": "self_refine",
+        "remember_cot": true,
+        "max_text_history": 16,
+        "max_image_history": 0,
+        "max_cot_history": 1,
+        "max_icl_history": 1000,
+        "cache_icl": false
+    },
+    "client": {
+        "client_name": "vllm",
+        "model_id": "Qwen/Qwen3-14B-AWQ",
+        "base_url": "http://localhost:8080/v1",
+        "generate_kwargs": {
+            "temperature": 1.0,
+            "max_tokens": 6144,
+            "thinking_budget": null
+        },
+        "timeout": 60,
+        "max_retries": 5,
+        "delay": 2,
+        "alternate_roles": false
+    }
+}

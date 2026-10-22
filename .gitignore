@@ -169,7 +169,7 @@ tw-games.zip
 /records.zip
 
 # Contingency experiment outputs (balrog-ai/BALROG#experiments)
-/experiments/results/
+# /experiments/results/
 
 # API keys (keep this file local only)
 /SECRETS

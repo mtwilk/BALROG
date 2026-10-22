@@ -1,0 +1,1 @@
+LOCAL_TIMING_DONE exit=0

@@ -1,0 +1,11 @@
+model,benchmark,status,progression_percentage,standard_error,episodes_played
+nemotron-3.5-lightning,babyai,not run,,,
+nemotron-3.5-lightning,textworld,not run,,,
+gemma-4-31b-it,babyai,not run,,,
+gemma-4-31b-it,textworld,not run,,,
+qwen3-8b-fp8,babyai,not run,,,
+qwen3-8b-fp8,textworld,not run,,,
+qwen3-14b-awq,babyai,not run,,,
+qwen3-14b-awq,textworld,not run,,,
+phi-4-awq,babyai,not run,,,
+phi-4-awq,textworld,not run,,,

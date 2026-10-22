@@ -1,0 +1,64 @@
+=== API models: nemotron-3.5-lightning, gemma-4-31b-it
+Starting WSL distro 'Ubuntu'...
+=== qwen3-8b-fp8
+vLLM up: Qwen/Qwen3-8B-FP8
+vLLM stopped
+=== qwen3-14b-awq
+vLLM failed to start for Qwen/Qwen3-14B-AWQ; last log lines:
+           ^^^^^^^^^^^^^^
+  File "/home/mateusz/vllm-venv/lib/python3.12/site-packages/vllm/tracing/otel.py", line 175, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mateusz/vllm-venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 1100, in __init__
+    super().__init__(
+  File "/home/mateusz/vllm-venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 674, in __init__
+    with launch_core_engines(
+  File "/usr/lib/python3.12/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/home/mateusz/vllm-venv/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1268, in launch_core_engines
+    wait_for_engine_startup(
+  File "/home/mateusz/vllm-venv/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1348, in wait_for_engine_startup
+    raise RuntimeError(
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+skipping qwen3-14b-awq: server did not start
+vLLM stopped
+=== phi-4-awq
+vLLM failed to start for stelterlab/phi-4-AWQ; last log lines:
+           ^^^^^^^^^^^^^^
+  File "/home/mateusz/vllm-venv/lib/python3.12/site-packages/vllm/tracing/otel.py", line 175, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mateusz/vllm-venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 1100, in __init__
+    super().__init__(
+  File "/home/mateusz/vllm-venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 674, in __init__
+    with launch_core_engines(
+  File "/usr/lib/python3.12/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/home/mateusz/vllm-venv/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1268, in launch_core_engines
+    wait_for_engine_startup(
+  File "/home/mateusz/vllm-venv/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1348, in wait_for_engine_startup
+    raise RuntimeError(
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+skipping phi-4-awq: server did not start
+vLLM stopped
+=== Combined table
+[nemotron-3.5-lightning / babyai] not run
+[nemotron-3.5-lightning / textworld] not run
+[gemma-4-31b-it / babyai] not run
+[gemma-4-31b-it / textworld] not run
+[qwen3-8b-fp8 / babyai] not run
+[qwen3-8b-fp8 / textworld] not run
+[qwen3-14b-awq / babyai] not run
+[qwen3-14b-awq / textworld] not run
+[phi-4-awq / babyai] not run
+[phi-4-awq / textworld] not run
+
+| Model | babyai | textworld |
+|---|---|---|
+| nemotron-3.5-lightning | not run | not run |
+| gemma-4-31b-it | not run | not run |
+| qwen3-8b-fp8 | not run | not run |
+| qwen3-14b-awq | not run | not run |
+| phi-4-awq | not run | not run |
+
+Written to /mnt/c/Users/Mateusz/Documents/BALROG/experiments/results/main

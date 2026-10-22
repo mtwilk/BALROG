@@ -1,0 +1,62 @@
+[
+    {
+        "model": "nemotron-3.5-lightning",
+        "benchmark": "babyai",
+        "output_dir": "/mnt/c/Users/Mateusz/Documents/BALROG/experiments/results/main/cells/nemotron-3.5-lightning/babyai",
+        "status": "not run"
+    },
+    {
+        "model": "nemotron-3.5-lightning",
+        "benchmark": "textworld",
+        "output_dir": "/mnt/c/Users/Mateusz/Documents/BALROG/experiments/results/main/cells/nemotron-3.5-lightning/textworld",
+        "status": "not run"
+    },
+    {
+        "model": "gemma-4-31b-it",
+        "benchmark": "babyai",
+        "output_dir": "/mnt/c/Users/Mateusz/Documents/BALROG/experiments/results/main/cells/gemma-4-31b-it/babyai",
+        "status": "not run"
+    },
+    {
+        "model": "gemma-4-31b-it",
+        "benchmark": "textworld",
+        "output_dir": "/mnt/c/Users/Mateusz/Documents/BALROG/experiments/results/main/cells/gemma-4-31b-it/textworld",
+        "status": "not run"
+    },
+    {
+        "model": "qwen3-8b-fp8",
+        "benchmark": "babyai",
+        "output_dir": "/mnt/c/Users/Mateusz/Documents/BALROG/experiments/results/main/cells/qwen3-8b-fp8/babyai",
+        "status": "not run"
+    },
+    {
+        "model": "qwen3-8b-fp8",
+        "benchmark": "textworld",
+        "output_dir": "/mnt/c/Users/Mateusz/Documents/BALROG/experiments/results/main/cells/qwen3-8b-fp8/textworld",
+        "status": "not run"
+    },
+    {
+        "model": "qwen3-14b-awq",
+        "benchmark": "babyai",
+        "output_dir": "/mnt/c/Users/Mateusz/Documents/BALROG/experiments/results/main/cells/qwen3-14b-awq/babyai",
+        "status": "not run"
+    },
+    {
+        "model": "qwen3-14b-awq",
+        "benchmark": "textworld",
+        "output_dir": "/mnt/c/Users/Mateusz/Documents/BALROG/experiments/results/main/cells/qwen3-14b-awq/textworld",
+        "status": "not run"
+    },
+    {
+        "model": "phi-4-awq",
+        "benchmark": "babyai",
+        "output_dir": "/mnt/c/Users/Mateusz/Documents/BALROG/experiments/results/main/cells/phi-4-awq/babyai",
+        "status": "not run"
+    },
+    {
+        "model": "phi-4-awq",
+        "benchmark": "textworld",
+        "output_dir": "/mnt/c/Users/Mateusz/Documents/BALROG/experiments/results/main/cells/phi-4-awq/textworld",
+        "status": "not run"
+    }
+]

@@ -1,0 +1,11 @@
+model,benchmark,status,progression_percentage,standard_error,episodes_played
+deepseek-v4-flash,babyai,ok,100.0,0.0,1
+deepseek-v4-flash,textworld,ok,0.0,0.0,1
+gpt-6-luna,babyai,ok,100.0,0.0,2
+gpt-6-luna,textworld,ok,0.0,0.0,1
+qwen3-8b-fp8,babyai,ok,50.0,35.35533905932737,2
+qwen3-8b-fp8,textworld,ok,0.0,0.0,1
+qwen3-14b-awq,babyai,ok,100.0,0.0,2
+qwen3-14b-awq,textworld,ok,0.0,0.0,1
+qwen3-0.6b,babyai,ok,0.0,0.0,2
+qwen3-0.6b,textworld,ok,0.0,0.0,1
